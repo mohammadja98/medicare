@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block page_title %}{% trans "Home" %}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-light text-center">
+    <div class="container">
+        <h1 class="fw-bold text-primary">{% trans "Welcome to MediCare" %}</h1>
+        <p class="lead text-muted">{% trans "Book appointments with top doctors in just a few clicks." %}</p>
+        <a href="{% url 'appointments:specialty_list' %}" class="btn btn-primary btn-lg mt-3">
+            {% trans "Get Started" %}
+        </a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="bi bi-heart-pulse text-danger" style="font-size: 2.5rem;"></i>
+                        <h5 class="fw-bold mt-3">{% trans "Find a Specialist" %}</h5>
+                        <p class="text-muted">{% trans "Browse through our wide range of medical specialties." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="bi bi-calendar-check text-success" style="font-size: 2.5rem;"></i>
+                        <h5 class="fw-bold mt-3">{% trans "Book Instantly" %}</h5>
+                        <p class="text-muted">{% trans "Choose your doctor and schedule an appointment instantly." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <i class="bi bi-shield-check text-primary" style="font-size: 2.5rem;"></i>
+                        <h5 class="fw-bold mt-3">{% trans "Secure & Private" %}</h5>
+                        <p class="text-muted">{% trans "Your data and medical history are safe with us." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

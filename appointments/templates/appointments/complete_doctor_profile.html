@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block page_title %}{% trans "Complete Doctor Profile" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">{% trans "Complete Your Profile" %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">{% trans "Save Profile" %}</button>
+    </form>
+</div>
+{% endblock %}

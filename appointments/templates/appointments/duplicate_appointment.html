@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block page_title %}{% trans "Duplicate Appointment" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card border-warning shadow-sm">
+                <div class="card-header bg-warning text-dark fw-bold">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    {% trans "Duplicate Appointment Detected" %}
+                </div>
+                <div class="card-body">
+                    <p class="lead">
+                        {% blocktrans with date=date time=time %}
+                            You already have an appointment on <strong>{{ date }}</strong> at 
+                            <strong>{{ time }}</strong> with this doctor or another doctor.
+                        {% endblocktrans %}
+                    </p>
+                    <hr>
+                    <p class="text-muted">
+                        {% trans "Please choose another time or date for your appointment." %}
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="{{ doctor.url }}" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left"></i> {% trans "Back to Doctor" %}
+                        </a>
+                        <a href="{% url 'appointments:specialty_list' %}" class="btn btn-primary">
+                            <i class="bi bi-calendar"></i> {% trans "View Specialties" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
